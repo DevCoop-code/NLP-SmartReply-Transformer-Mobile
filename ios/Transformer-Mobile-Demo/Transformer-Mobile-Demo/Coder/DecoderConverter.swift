@@ -21,7 +21,7 @@ class DecoderConverter {
     var vecToWord: String?
     
     init?() {
-        guard let vectowordJsonPath = Bundle.main.path(forResource: "VecToWord", ofType: "json") else {
+        guard let vectowordJsonPath = Bundle.main.path(forResource: "vectoword", ofType: "json") else {
             return nil
         }
         do {
