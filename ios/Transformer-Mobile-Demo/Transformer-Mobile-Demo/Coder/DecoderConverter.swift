@@ -7,16 +7,6 @@
 
 import Foundation
 
-//struct DataConfigJson: Codable {
-//    let char2idx
-//    let idx2char
-//    let vocab_size: Int
-//    let pad_symbol: String
-//    let std_symbol: String
-//    let end_symbol: String
-//    let unk_symbol: String
-//}
-
 class DecoderConverter {
     var vecToWord: String?
     

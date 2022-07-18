@@ -43,7 +43,7 @@ class ModelDataHandler {
         }
     }
     
-    func runModel() -> String?{
+    func runModel(inputStr: String) -> String?{
         print("runModel")
         
         let outputTensor_0: Tensor
@@ -58,7 +58,10 @@ class ModelDataHandler {
             // Allocate memory for the model's input Tensor's
             try interpreter.allocateTensors()
             
-            let encoderInputArray: [Int64] = [92, 80, 36, 82, 87, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+//            let encoderInputArray: [Int64] = [92, 80, 36, 82, 87, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            let encoderConverter = EncoderConverter()
+            let encoderInputArray = encoderConverter!.convertWordToVector(input: inputStr)
+            
             let encoderInputData = Data(buffer: UnsafeBufferPointer(start: encoderInputArray, count: encoderInputArray.count))
             
             // Copy the input data to the input Tensor

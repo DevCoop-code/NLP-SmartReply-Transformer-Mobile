@@ -43,7 +43,7 @@ struct ChatView: View {
         
         chatHelper.sendMessage(Message(content: typingMessage, user: User(name: "Ryan", avatar: "ryanicon", isCurrentUser: true)))
         
-        guard let predictedResponse = transformerModelHandler?.runModel() else {
+        guard let predictedResponse = transformerModelHandler?.runModel(inputStr: typingMessage) else {
             return
         }
         
