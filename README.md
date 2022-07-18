@@ -10,6 +10,9 @@
 채팅 메시지를 기반으로 답장 제안을 생성. 수신된 메시지에 쉽게 응답 할 수 있도록 상황에 맞는 응답을 제공하는 모델
 
 ## Demo
+<p>
+    <img width="300" src="images/demo.jpg">
+</p>
 
 ## Model Structure
 - Input 
