@@ -641,6 +641,24 @@
 			};
 			name = Debug;
 		};
+		48D2DF71F09FBF0D5518A73563A3F043 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5871589F913736F943C1E51937FC0CDB /* TensorFlowLiteC.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		5EBC9ED30CF4DC30C8E3E3C5594550E3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1E6BAF2AB35BC8DA0D23162418737216 /* Pods-Transformer-Mobile-Demo.release.xcconfig */;
@@ -679,6 +697,23 @@
 			};
 			name = Release;
 		};
+		8A49B465B18C8D14131B7EDCD31BA5A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00C86D957A9CB45DB54A9F09A4F4B569 /* TensorFlowLiteC.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 		A48608ADA234D41D230C284F06CFB5DA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E6E30B1887360A8D5008E40676072685 /* Pods-Transformer-Mobile-Demo.debug.xcconfig */;
@@ -716,39 +751,6 @@
 			};
 			name = Debug;
 		};
-		D976812998FF3803C542AC86028E5ED4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5871589F913736F943C1E51937FC0CDB /* TensorFlowLiteC.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		EE38B148ED2A9DC78FDE092C20DE6EC8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 00C86D957A9CB45DB54A9F09A4F4B569 /* TensorFlowLiteC.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -764,8 +766,8 @@
 		636D81D05741D892734E9C70745D0DB7 /* Build configuration list for PBXAggregateTarget "TensorFlowLiteC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EE38B148ED2A9DC78FDE092C20DE6EC8 /* Debug */,
-				D976812998FF3803C542AC86028E5ED4 /* Release */,
+				8A49B465B18C8D14131B7EDCD31BA5A5 /* Debug */,
+				48D2DF71F09FBF0D5518A73563A3F043 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

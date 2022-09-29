@@ -11,13 +11,17 @@ struct ChatView: View {
     @State var typingMessage: String = ""
     @EnvironmentObject var chatHelper: ChatHelper
     
+    // 추론 하기 위한 Transformer Model
     let transformerModelHandler: ModelDataHandler?
+    // 분류 하기 위한 CNN Classifier Model
+    let textClassifier: TextClassifier?
     
     init() {
         UITableView.appearance().separatorStyle = .none
         UITableView.appearance().tableFooterView = UIView()
         
         transformerModelHandler = ModelDataHandler(modelFileInfo: MobileNet.modelInfo)
+        textClassifier = TextClassifier(modelFileInfo: MobileNet.classifyModelInfo)
     }
     
     var body: some View {
@@ -43,12 +47,13 @@ struct ChatView: View {
         
         chatHelper.sendMessage(Message(content: typingMessage, user: User(name: "Ryan", avatar: "ryanicon", isCurrentUser: true)))
         
-        guard let predictedResponse = transformerModelHandler?.runModel(inputStr: typingMessage) else {
-            return
-        }
+        textClassifier?.classifyTheSentence(inputStr: typingMessage)
+//        guard let predictedResponse = transformerModelHandler?.runModel(inputStr: typingMessage) else {
+//            return
+//        }
         
-        chatHelper.sendMessage(Message(content: predictedResponse, user: User(name: "Ryan", avatar: "ryanicon", isCurrentUser: false)))
-        
+//        chatHelper.sendMessage(Message(content: predictedResponse, user: User(name: "Ryan", avatar: "ryanicon", isCurrentUser: false)))
+
         typingMessage = ""
     }
 }

@@ -12,6 +12,10 @@ import TensorFlowLite
 typealias FileInfo = (name: String, extension: String)
 
 enum MobileNet {
+    // 문장의 주제를 분류하기 위한 모델 (Personal, Food, Hobby 3개 중 하나로 분류)
+    static let classifyModelInfo:FileInfo = (name: "classify_cnn", extension: "tflite")
+    static let classifyJSONInfo: FileInfo = (name: "classify_wordtovec", extension: "json")
+    
     static let modelInfo: FileInfo = (name: "transformer_output7_input4153026", extension: "tflite")
 }
 
@@ -59,8 +63,8 @@ class ModelDataHandler {
             try interpreter.allocateTensors()
             
 //            let encoderInputArray: [Int64] = [92, 80, 36, 82, 87, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-            let encoderConverter = EncoderConverter()
-            let encoderInputArray = encoderConverter!.convertWordToVector(input: inputStr)
+            let encoderConverter = EncoderConverter(modelFileInfo: MobileNet.modelInfo)
+            let encoderInputArray = encoderConverter!.convertWordToVectorInt64(input: inputStr)
             
             let encoderInputData = Data(buffer: UnsafeBufferPointer(start: encoderInputArray, count: encoderInputArray.count))
             
@@ -80,7 +84,6 @@ class ModelDataHandler {
             print("Failed to invoke the interpreter with error: \(error.localizedDescription)")
             return nil
         }
-        
         
 //        print(outputTensor.data)
         
