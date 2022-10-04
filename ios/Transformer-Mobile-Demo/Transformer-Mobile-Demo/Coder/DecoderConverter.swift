@@ -10,8 +10,9 @@ import Foundation
 class DecoderConverter {
     var vecToWord: String?
     
-    init?() {
-        guard let vectowordJsonPath = Bundle.main.path(forResource: "vectoword", ofType: "json") else {
+    init?(modelFileInfo: FileInfo) {
+        let modelFilename = modelFileInfo.name
+        guard let vectowordJsonPath = Bundle.main.path(forResource: modelFilename, ofType: modelFileInfo.extension) else {
             return nil
         }
         do {

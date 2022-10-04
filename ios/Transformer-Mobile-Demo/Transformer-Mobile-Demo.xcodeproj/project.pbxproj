@@ -23,6 +23,19 @@
 		78CF1EA428859FFF0097E5A0 /* EncoderConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF1EA328859FFF0097E5A0 /* EncoderConverter.swift */; };
 		78FF4D4928E458C40022CDB3 /* classify_wordtovec.json in Resources */ = {isa = PBXBuildFile; fileRef = 78FF4D4828E458C40022CDB3 /* classify_wordtovec.json */; };
 		78FF4D4B28E5523F0022CDB3 /* TextClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FF4D4A28E5523F0022CDB3 /* TextClassifier.swift */; };
+		78FF4D4D28E587C20022CDB3 /* transformerModel_personal.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 78FF4D4C28E587C20022CDB3 /* transformerModel_personal.tflite */; };
+		78FF4D5028E588530022CDB3 /* transformerPersonalWordToVec.json in Resources */ = {isa = PBXBuildFile; fileRef = 78FF4D4E28E588530022CDB3 /* transformerPersonalWordToVec.json */; };
+		78FF4D5128E588530022CDB3 /* transformerPersonalVecToWord.json in Resources */ = {isa = PBXBuildFile; fileRef = 78FF4D4F28E588530022CDB3 /* transformerPersonalVecToWord.json */; };
+		78FF4D5328E589BE0022CDB3 /* transformerModel_food.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 78FF4D5228E589BE0022CDB3 /* transformerModel_food.tflite */; };
+		78FF4D5628E58A800022CDB3 /* transformerFoodVecToWord.json in Resources */ = {isa = PBXBuildFile; fileRef = 78FF4D5428E58A800022CDB3 /* transformerFoodVecToWord.json */; };
+		78FF4D5728E58A800022CDB3 /* transformerFoodWordToVec.json in Resources */ = {isa = PBXBuildFile; fileRef = 78FF4D5528E58A800022CDB3 /* transformerFoodWordToVec.json */; };
+		78FF4D5928E58B2D0022CDB3 /* transformerModel_hobby.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 78FF4D5828E58B2D0022CDB3 /* transformerModel_hobby.tflite */; };
+		78FF4D5C28E58BB10022CDB3 /* transformerHobbyWordToVec.json in Resources */ = {isa = PBXBuildFile; fileRef = 78FF4D5A28E58BB10022CDB3 /* transformerHobbyWordToVec.json */; };
+		78FF4D5D28E58BB10022CDB3 /* transformerHobbyVecToWord.json in Resources */ = {isa = PBXBuildFile; fileRef = 78FF4D5B28E58BB10022CDB3 /* transformerHobbyVecToWord.json */; };
+		78FF4D5F28E5C25B0022CDB3 /* morphemizedText_personal.json in Resources */ = {isa = PBXBuildFile; fileRef = 78FF4D5E28E5C25B0022CDB3 /* morphemizedText_personal.json */; };
+		78FF4D6128E5C2650022CDB3 /* morphemizedText_food.json in Resources */ = {isa = PBXBuildFile; fileRef = 78FF4D6028E5C2650022CDB3 /* morphemizedText_food.json */; };
+		78FF4D6328E5C2700022CDB3 /* morphemizedText_hobby.json in Resources */ = {isa = PBXBuildFile; fileRef = 78FF4D6228E5C2700022CDB3 /* morphemizedText_hobby.json */; };
+		78FF4D6528E675EC0022CDB3 /* MorphemizedSentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FF4D6428E675EC0022CDB3 /* MorphemizedSentence.swift */; };
 		CE3B08B75C7140E04C92610C /* Pods_Transformer_Mobile_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD16276659AB3E5D8A42ED48 /* Pods_Transformer_Mobile_Demo.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +57,19 @@
 		78CF1EA328859FFF0097E5A0 /* EncoderConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncoderConverter.swift; sourceTree = "<group>"; };
 		78FF4D4828E458C40022CDB3 /* classify_wordtovec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = classify_wordtovec.json; sourceTree = "<group>"; };
 		78FF4D4A28E5523F0022CDB3 /* TextClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextClassifier.swift; sourceTree = "<group>"; };
+		78FF4D4C28E587C20022CDB3 /* transformerModel_personal.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = transformerModel_personal.tflite; sourceTree = "<group>"; };
+		78FF4D4E28E588530022CDB3 /* transformerPersonalWordToVec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = transformerPersonalWordToVec.json; sourceTree = "<group>"; };
+		78FF4D4F28E588530022CDB3 /* transformerPersonalVecToWord.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = transformerPersonalVecToWord.json; sourceTree = "<group>"; };
+		78FF4D5228E589BE0022CDB3 /* transformerModel_food.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = transformerModel_food.tflite; sourceTree = "<group>"; };
+		78FF4D5428E58A800022CDB3 /* transformerFoodVecToWord.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = transformerFoodVecToWord.json; sourceTree = "<group>"; };
+		78FF4D5528E58A800022CDB3 /* transformerFoodWordToVec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = transformerFoodWordToVec.json; sourceTree = "<group>"; };
+		78FF4D5828E58B2D0022CDB3 /* transformerModel_hobby.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = transformerModel_hobby.tflite; sourceTree = "<group>"; };
+		78FF4D5A28E58BB10022CDB3 /* transformerHobbyWordToVec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = transformerHobbyWordToVec.json; sourceTree = "<group>"; };
+		78FF4D5B28E58BB10022CDB3 /* transformerHobbyVecToWord.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = transformerHobbyVecToWord.json; sourceTree = "<group>"; };
+		78FF4D5E28E5C25B0022CDB3 /* morphemizedText_personal.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = morphemizedText_personal.json; sourceTree = "<group>"; };
+		78FF4D6028E5C2650022CDB3 /* morphemizedText_food.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = morphemizedText_food.json; sourceTree = "<group>"; };
+		78FF4D6228E5C2700022CDB3 /* morphemizedText_hobby.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = morphemizedText_hobby.json; sourceTree = "<group>"; };
+		78FF4D6428E675EC0022CDB3 /* MorphemizedSentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorphemizedSentence.swift; sourceTree = "<group>"; };
 		793FA3A4E9F11C3B9C0BA22F /* Pods-Transformer-Mobile-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transformer-Mobile-Demo.release.xcconfig"; path = "Target Support Files/Pods-Transformer-Mobile-Demo/Pods-Transformer-Mobile-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		EFBC66B114A2247665450CE7 /* Pods-Transformer-Mobile-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transformer-Mobile-Demo.debug.xcconfig"; path = "Target Support Files/Pods-Transformer-Mobile-Demo/Pods-Transformer-Mobile-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		FD16276659AB3E5D8A42ED48 /* Pods_Transformer_Mobile_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transformer_Mobile_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,8 +132,20 @@
 		78718FA2287F994400D105CE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				78FF4D4828E458C40022CDB3 /* classify_wordtovec.json */,
+				78FF4D5E28E5C25B0022CDB3 /* morphemizedText_personal.json */,
+				78FF4D6028E5C2650022CDB3 /* morphemizedText_food.json */,
+				78FF4D6228E5C2700022CDB3 /* morphemizedText_hobby.json */,
+				78FF4D4C28E587C20022CDB3 /* transformerModel_personal.tflite */,
+				78FF4D4F28E588530022CDB3 /* transformerPersonalVecToWord.json */,
+				78FF4D4E28E588530022CDB3 /* transformerPersonalWordToVec.json */,
+				78FF4D5228E589BE0022CDB3 /* transformerModel_food.tflite */,
+				78FF4D5428E58A800022CDB3 /* transformerFoodVecToWord.json */,
+				78FF4D5528E58A800022CDB3 /* transformerFoodWordToVec.json */,
+				78FF4D5828E58B2D0022CDB3 /* transformerModel_hobby.tflite */,
+				78FF4D5B28E58BB10022CDB3 /* transformerHobbyVecToWord.json */,
+				78FF4D5A28E58BB10022CDB3 /* transformerHobbyWordToVec.json */,
 				7893EABE28E44D3900402D9E /* classify_cnn.tflite */,
+				78FF4D4828E458C40022CDB3 /* classify_wordtovec.json */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -146,6 +184,7 @@
 				78718FA0287F992200D105CE /* ModelDataHandler.swift */,
 				7893EAC028E44FBB00402D9E /* TextPreprocessor.swift */,
 				78FF4D4A28E5523F0022CDB3 /* TextClassifier.swift */,
+				78FF4D6428E675EC0022CDB3 /* MorphemizedSentence.swift */,
 			);
 			path = NLPSystem;
 			sourceTree = "<group>";
@@ -227,9 +266,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				78067FC1287EAD96009D3232 /* Preview Assets.xcassets in Resources */,
+				78FF4D5728E58A800022CDB3 /* transformerFoodWordToVec.json in Resources */,
+				78FF4D5028E588530022CDB3 /* transformerPersonalWordToVec.json in Resources */,
 				78FF4D4928E458C40022CDB3 /* classify_wordtovec.json in Resources */,
 				78067FBE287EAD96009D3232 /* Assets.xcassets in Resources */,
+				78FF4D5928E58B2D0022CDB3 /* transformerModel_hobby.tflite in Resources */,
+				78FF4D5628E58A800022CDB3 /* transformerFoodVecToWord.json in Resources */,
+				78FF4D5F28E5C25B0022CDB3 /* morphemizedText_personal.json in Resources */,
+				78FF4D5D28E58BB10022CDB3 /* transformerHobbyVecToWord.json in Resources */,
+				78FF4D4D28E587C20022CDB3 /* transformerModel_personal.tflite in Resources */,
+				78FF4D5328E589BE0022CDB3 /* transformerModel_food.tflite in Resources */,
+				78FF4D5128E588530022CDB3 /* transformerPersonalVecToWord.json in Resources */,
+				78FF4D5C28E58BB10022CDB3 /* transformerHobbyWordToVec.json in Resources */,
 				7893EABF28E44D3900402D9E /* classify_cnn.tflite in Resources */,
+				78FF4D6328E5C2700022CDB3 /* morphemizedText_hobby.json in Resources */,
+				78FF4D6128E5C2650022CDB3 /* morphemizedText_food.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +323,7 @@
 				78CF1E9B288563DA0097E5A0 /* ChatView.swift in Sources */,
 				78FF4D4B28E5523F0022CDB3 /* TextClassifier.swift in Sources */,
 				78718FA1287F992200D105CE /* ModelDataHandler.swift in Sources */,
+				78FF4D6528E675EC0022CDB3 /* MorphemizedSentence.swift in Sources */,
 				78CF1E9028855EA50097E5A0 /* ContentMessageView.swift in Sources */,
 				78718FA72880B20700D105CE /* DecoderConverter.swift in Sources */,
 				78CF1E9528855FD00097E5A0 /* ModelData.swift in Sources */,

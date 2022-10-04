@@ -16,7 +16,21 @@ enum MobileNet {
     static let classifyModelInfo:FileInfo = (name: "classify_cnn", extension: "tflite")
     static let classifyJSONInfo: FileInfo = (name: "classify_wordtovec", extension: "json")
     
-    static let modelInfo: FileInfo = (name: "transformer_output7_input4153026", extension: "tflite")
+    static let personalModelInfo: FileInfo = (name: "transformerModel_personal", extension: "tflite")
+    static let modelPersonalVecToWordJSONInfo: FileInfo = (name: "transformerPersonalVecToWord", extension: "json")
+    static let modelPersonalWordToVecJSONInfo: FileInfo = (name: "transformerPersonalWordToVec", extension: "json")
+    
+    static let foodModelInfo: FileInfo = (name: "transformerModel_food", extension: "tflite")
+    static let modelFoodVecToWordJSONInfo: FileInfo = (name: "transformerFoodVecToWord", extension: "json")
+    static let modelFoodWordToVecJSONInfo: FileInfo = (name: "transformerFoodWordToVec", extension: "json")
+    
+    static let hobbyModelInfo: FileInfo = (name: "transformerModel_hobby", extension: "tflite")
+    static let modelHobbyVecToWordJSONInfo: FileInfo = (name: "transformerHobbyVecToWord", extension: "json")
+    static let modelHobbyWordToVecJSONInfo: FileInfo = (name: "transformerHobbyWordToVec", extension: "json")
+    
+    static let morphemizedPersonalJSONInfo: FileInfo = (name: "morphemizedText_personal", extension: "json")
+    static let morphemizedFoodJSONInfo: FileInfo = (name: "morphemizedText_food", extension: "json")
+    static let morphemizedHobbyJSONInfo: FileInfo = (name: "morphemizedText_hobby", extension: "json")
 }
 
 class ModelDataHandler {
@@ -24,7 +38,17 @@ class ModelDataHandler {
     
     private var interpreter: Interpreter
     
-    init?(modelFileInfo: FileInfo, threadCount: Int = 1) {
+    private var modelInfo: FileInfo
+    private var wordToVecInfo: FileInfo
+    private var vecToWordInfo: FileInfo
+    private var morphemizedInfo: FileInfo
+    
+    init?(modelFileInfo: FileInfo, wordToVec:FileInfo, vecToWord:FileInfo, morphemized:FileInfo, threadCount: Int = 1) {
+        modelInfo = modelFileInfo
+        wordToVecInfo = wordToVec
+        vecToWordInfo = vecToWord
+        morphemizedInfo = morphemized
+        
         let modelFilename = modelFileInfo.name
         
         // Construct the path to the model file
@@ -62,10 +86,31 @@ class ModelDataHandler {
             // Allocate memory for the model's input Tensor's
             try interpreter.allocateTensors()
             
-//            let encoderInputArray: [Int64] = [92, 80, 36, 82, 87, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-            let encoderConverter = EncoderConverter(modelFileInfo: MobileNet.modelInfo)
-            let encoderInputArray = encoderConverter!.convertWordToVectorInt64(input: inputStr)
+            // let encoderInputArray: [Int64] = [92, 80, 36, 82, 87, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            let textPreprocessor = TextPreprocessor()
+            guard let textPreprocessor = textPreprocessor else {
+                return nil
+            }
             
+            // 데이터 전처리
+            var inputStr = try textPreprocessor.convertTextForInference(input: inputStr)
+            guard let inputStr = inputStr else {
+                return nil
+            }
+            
+            // 형태소 분석
+            let morphemizedSentence: MorphemizedSentence?
+            morphemizedSentence = MorphemizedSentence(modelFileInfo: MobileNet.morphemizedPersonalJSONInfo)
+            var morphmizedInputStr = morphemizedSentence?.morphemizeWord(input: inputStr)
+            guard let morphmizedInputStr = morphmizedInputStr else {
+                return nil
+            }
+//            print(morphemizedSentence)
+            
+            // 전처리된 입력텍스트를 Vector의 형태로 변환 (String --> Vector)
+            let encoderConverter = EncoderConverter(modelFileInfo: wordToVecInfo)
+            let encoderInputArray = encoderConverter!.convertWordToVectorInt64(input: morphmizedInputStr)
+            // Vector화된 텍스트 데이터를 Data형태로 변환 (Vector --> Data)
             let encoderInputData = Data(buffer: UnsafeBufferPointer(start: encoderInputArray, count: encoderInputArray.count))
             
             // Copy the input data to the input Tensor
@@ -84,8 +129,6 @@ class ModelDataHandler {
             print("Failed to invoke the interpreter with error: \(error.localizedDescription)")
             return nil
         }
-        
-//        print(outputTensor.data)
         
         let outputData_0 = outputTensor_0.data
         let outputValue_0 = outputData_0.withUnsafeBytes{$0.load(as: Int64.self)}
@@ -108,15 +151,7 @@ class ModelDataHandler {
         let outputData_6 = outputTensor_6.data
         let outputValue_6 = outputData_6.withUnsafeBytes{$0.load(as: Int64.self)}
         
-        let decoderConverter = DecoderConverter()
-        
-//        print(outputValue_0)
-//        print(outputValue_1)
-//        print(outputValue_2)
-//        print(outputValue_3)
-//        print(outputValue_4)
-//        print(outputValue_5)
-//        print(outputValue_6)
+        let decoderConverter = DecoderConverter(modelFileInfo: vecToWordInfo)
         
         var predictedResponse = "";
         if outputValue_0 > 3 {
@@ -154,24 +189,6 @@ class ModelDataHandler {
             
             predictedResponse = predictedResponse + " " + outputStr_6!
         }
-        
-//        let outputStr_0 = decoderConverter?.convertVecToWord(key: String(outputValue_0))
-//        let outputStr_1 = decoderConverter?.convertVecToWord(key: String(outputValue_1))
-//        let outputStr_2 = decoderConverter?.convertVecToWord(key: String(outputValue_2))
-//        let outputStr_3 = decoderConverter?.convertVecToWord(key: String(outputValue_3))
-//        let outputStr_4 = decoderConverter?.convertVecToWord(key: String(outputValue_4))
-//        let outputStr_5 = decoderConverter?.convertVecToWord(key: String(outputValue_5))
-//        let outputStr_6 = decoderConverter?.convertVecToWord(key: String(outputValue_6))
-                
-//        let predictedResponse = outputStr_0! + " " + outputStr_1! + " " + outputStr_2! + " " + outputStr_3! + " " + outputStr_4! + " " + outputStr_5! + " " + outputStr_6!
-        
-//        print(outputStr_0!)
-//        print(outputStr_1)
-//        print(outputStr_2)
-//        print(outputStr_3)
-//        print(outputStr_4)
-//        print(outputStr_5)
-//        print(outputStr_6)
         
         print(predictedResponse)
         

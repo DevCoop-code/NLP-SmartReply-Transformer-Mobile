@@ -35,7 +35,7 @@ class TextClassifier {
         }
     }
     
-    func classifyTheSentence(inputStr: String) {
+    func classifyTheSentence(inputStr: String) -> [Float32]? {
         print("Classify the Sentence")
         
         let outputTensor: Tensor
@@ -49,12 +49,12 @@ class TextClassifier {
             // 입력된 텍스트 전처리
             let preprocessedText = try textPreprocessor?.convertTextForClassification(input: inputStr)
             guard let preprocessedText = preprocessedText else {
-                return
+                return nil
             }
             // 전처리된 입력텍스트를 Vector의 형태로 변환 (String --> Vector)
             let encoderInputArray = encoderConverter?.convertWordToVectorInt32(input: preprocessedText)
             guard let encoderInputArray = encoderInputArray else {
-                return
+                return nil
             }
             // Vector화된 텍스트 데이터를 Data형태로 변환 (Vector --> Data)
             let encoderInputData = Data(buffer: UnsafeBufferPointer(start: encoderInputArray, count: encoderInputArray.count))
@@ -74,8 +74,13 @@ class TextClassifier {
             print(outputValue_1)
             print(outputValue_2)
             
+            let classifyResult: [Float32] = [outputValue_0, outputValue_1, outputValue_2]
+            return classifyResult
+            
         } catch let error {
             print("Failed to invoke the interpreter with error: \(error.localizedDescription)")
         }
+        
+        return nil
     }
 }

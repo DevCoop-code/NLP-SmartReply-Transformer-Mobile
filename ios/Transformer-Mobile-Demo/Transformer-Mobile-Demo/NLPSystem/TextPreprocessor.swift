@@ -33,4 +33,22 @@ class TextPreprocessor {
                                                                withTemplate: "")
         return preprocessedInputStr;
     }
+    
+    func convertTextForInference(input: String) throws -> String? {
+        var preprocessedInputStr: String? = nil
+        
+        var input = input.replacingOccurrences(of: "ㅋㅋㅋㅋㅋ", with: "ㅋ").replacingOccurrences(of: "ㅋㅋㅋㅋ", with: "ㅋ").replacingOccurrences(of: "ㅋㅋㅋ", with: "ㅋ").replacingOccurrences(of: "ㅋㅋ", with: "ㅋ")
+        input = input.replacingOccurrences(of: "ㅎㅎㅎㅎㅎ", with: "ㅎ").replacingOccurrences(of: "ㅎㅎㅎㅎ", with: "ㅎ").replacingOccurrences(of: "ㅎㅎㅎ", with: "ㅎ").replacingOccurrences(of: "ㅎㅎ", with: "ㅎ")
+        input = input.replacingOccurrences(of: "!!!!!", with: "!").replacingOccurrences(of: "!!!!", with: "!").replacingOccurrences(of: "!!!", with: "!").replacingOccurrences(of: "!!", with: "!")
+        input = input.replacingOccurrences(of: "?????", with: "?").replacingOccurrences(of: "????", with: "?").replacingOccurrences(of: "???", with: "?").replacingOccurrences(of: "??", with: "?")
+        input = input.replacingOccurrences(of: "ㅜㅜㅜㅜㅜ", with: "ㅜ").replacingOccurrences(of: "ㅜㅜㅜㅜ", with: "ㅜ").replacingOccurrences(of: "ㅜㅜㅜ", with: "ㅜ").replacingOccurrences(of: "ㅜㅜ", with: "ㅜ")
+        input = input.replacingOccurrences(of: "ㅠㅠㅠㅠㅠ", with: "ㅠ").replacingOccurrences(of: "ㅠㅠㅠㅠ", with: "ㅠ").replacingOccurrences(of: "ㅠㅠㅠ", with: "ㅠ").replacingOccurrences(of: "ㅠㅠ", with: "ㅠ")
+        
+        let regex: NSRegularExpression = try NSRegularExpression(pattern: "([~.,!\"':;)(])")
+        preprocessedInputStr = regex.stringByReplacingMatches(in: input,
+                                                              options: [],
+                                                              range: NSMakeRange(0, input.count),
+                                                              withTemplate: "")
+        return preprocessedInputStr
+    }
 }
